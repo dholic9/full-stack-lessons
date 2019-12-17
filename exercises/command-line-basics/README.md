@@ -65,7 +65,7 @@ Use the up and down arrows (or PgUp and PgDn) to scroll the page. Press `space` 
     pwd > i-was-here.txt
     ```
 1. Use the `ls` command to list the contents of your current working directory, it should include the new file you just created.
-1. Use the `cat` command to print the contents of `is-was-here.txt` to the terminal.
+1. Use the `cat` command to print the contents of `i-was-here.txt` to the terminal.
 
 #### `echo`
 
