@@ -41,5 +41,5 @@ When your solution is complete, return to the root of your `lfz-full-stack-lesso
 
 ### Quiz
 
-- What is the purpost of `module.exports` in a Node.js module?
+- What is the purpose of `module.exports` in a Node.js module?
 - How do you import functionality into a Node.js module from another Node.js module?
