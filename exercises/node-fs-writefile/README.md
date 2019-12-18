@@ -29,7 +29,7 @@ Be sure to check out a new branch (from `master`) for this exercise. Detailed in
   <img src="images/note-to-self.gif">
 </p>
 
-#### Level 3 - DO AFTER TURNING IN LEVELS 2 AND 3
+#### Level 3 - DO AFTER TURNING IN LEVELS 1 AND 2
 
 1. Create a new file named `cp.js`.
 1. Within `cp.js`, use `fs.readFile`, `fs.writeFile`, and `process.argv` to copy one file to another file.
