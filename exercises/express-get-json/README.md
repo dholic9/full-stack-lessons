@@ -33,7 +33,10 @@ Be sure to check out a new branch (from `master`) for this exercise. Detailed in
 1. Add a `public/` directory containing an `index.html` and a `main.js`
 1. Link your `main.js` to `index.html` with a script tag and add jQuery from a CDN.
 1. Enhance your Express `app` to serve files from the `public/` directory using [`express.static()`](../express-static/README.md).
-1. In `main.js` use `$.ajax()` to fetch data from your server at `/api/grades`.
+1. In `main.js` use `$.ajax()` to fetch data from your server at `/api/grades`. You'll probably need to add the following comment to the top of your `main.js` to appease the linter:
+    ```js
+    /* global $ */
+    ```
 1. Load your web site at `http://localhost:3000` in your web browser.
 1. Confirm that everything is working using the "Network" tab of the Developer Tools.
 
