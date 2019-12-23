@@ -1,12 +1,17 @@
 /* eslint-disable no-console */
 
 const express = require('express');
-// const fs = require('fs');
 const app = express();
 const obj = require('./data.json');
+const notesObj = obj.notes;
 
 app.get('/api/notes', (req, res) => {
-  res.status(200).json(obj.notes);
+
+  const arr = [];
+  for (const keys in notesObj) {
+    arr.push(notesObj[keys]);
+  }
+  res.status(200).json(arr);
 });
 
 app.get('/api/notes/:id', (req, res) => {
@@ -15,7 +20,7 @@ app.get('/api/notes/:id', (req, res) => {
   }
 
   if (obj.notes[req.params.id]) {
-    res.status(200).json(obj.notes[req.params.id]);
+    res.status(200).json(notesObj[req.params.id]);
   }
 
   if (obj.notes[req.params.id] === undefined) {
@@ -23,6 +28,10 @@ app.get('/api/notes/:id', (req, res) => {
       error: `cannot find note with id ${req.params.id}`
     });
   }
+});
+
+app.post('/api/notes', (req, res) => {
+
 });
 
 app.listen(3000, () => {
