@@ -7,7 +7,6 @@ const obj = require('./data.json');
 const notesObj = obj.notes;
 
 app.get('/api/notes', (req, res) => {
-
   const arr = [];
   for (const keys in notesObj) {
     arr.push(notesObj[keys]);
@@ -20,17 +19,16 @@ app.get('/api/notes/:id', (req, res) => {
   if (getId < 0) {
     res.status(400).json({ error: 'id must be a positive integer' });
   }
-
   if (obj.notes[getId]) {
     res.status(200).json(notesObj[getId]);
   }
-
   if (obj.notes[getId] === undefined) {
     res.status(404).json({
       error: `cannot find note with id ${getId}`
     });
   }
 });
+
 app.use(express.json());
 
 app.post('/api/notes', (req, res) => {
@@ -41,22 +39,21 @@ app.post('/api/notes', (req, res) => {
       id: obj.nextId,
       content: req.body.content
     };
-
     const json = JSON.stringify(obj, null, 2);
     fs.writeFile('./data.json', json, 'utf8', (err, data) => {
       if (err) {
         res.status(500).json({ error: 'An unexpected error occurred' });
+      } else {
+        res.status(201).json(notesObj[obj.nextId]);
+        obj.nextId++;
       }
     });
-    res.status(201).json(notesObj[obj.nextId]);
-    obj.nextId++;
-  }
 
+  }
 });
 
 app.delete('/api/notes/:id', (req, res) => {
   const deleteId = req.params.id;
-
   if (deleteId <= 0) {
     res.status(400).json({ error: 'id must be a positive integer' });
   }
@@ -65,13 +62,13 @@ app.delete('/api/notes/:id', (req, res) => {
   }
   if (notesObj[deleteId]) {
     delete notesObj[deleteId];
-
     const json = JSON.stringify(obj, null, 2);
     fs.writeFile('./data.json', json, 'utf8', (err, data) => {
       if (err) {
         res.status(500).json({ error: 'An unexpected error occurred' });
+      } else {
+        res.sendStatus(204);
       }
-      res.sendStatus(204);
     });
   }
 });
@@ -90,9 +87,10 @@ app.put('/api/notes/:id', (req, res) => {
     fs.writeFile('./data.json', json, 'utf8', (err, data) => {
       if (err) {
         res.status(500).json({ error: 'An unexpected error occurred' });
+      } else {
+        res.status(200).json(notesObj[putId]);
       }
     });
-    res.status(200).json(notesObj[putId]);
   }
 });
 
