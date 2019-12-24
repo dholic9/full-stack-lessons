@@ -31,24 +31,27 @@ app.get('/api/notes/:id', (req, res) => {
     });
   }
 });
+app.use(express.json());
 
 app.post('/api/notes', (req, res) => {
-  if (!req.headers['content-type']) {
+  if (!req.body.content) {
     res.status(400).json({ error: 'content is a required field' });
-  } else if (req.headers['content-type']) {
+  } else if (req.body.content) {
     notesObj[obj.nextId] = {
       id: obj.nextId,
-      content: req.headers.content
+      content: req.body.content
     };
+
+    const json = JSON.stringify(obj, null, 2);
+    fs.writeFile('./data.json', json, 'utf8', (err, data) => {
+      if (err) {
+        res.status(500).json({ error: 'An unexpected error occurred' });
+      }
+    });
     res.status(201).json(notesObj[obj.nextId]);
     obj.nextId++;
   }
-  const json = JSON.stringify(obj, null, 2);
-  fs.writeFile('./data.json', json, 'utf8', (err, data) => {
-    if (err) {
-      res.status(500).json({ error: 'An unexpected error occurred' });
-    }
-  });
+
 });
 
 app.delete('/api/notes/:id', (req, res) => {
@@ -62,35 +65,35 @@ app.delete('/api/notes/:id', (req, res) => {
   }
   if (notesObj[deleteId]) {
     delete notesObj[deleteId];
-    res.sendStatus(204);
+
+    const json = JSON.stringify(obj, null, 2);
+    fs.writeFile('./data.json', json, 'utf8', (err, data) => {
+      if (err) {
+        res.status(500).json({ error: 'An unexpected error occurred' });
+      }
+      res.sendStatus(204);
+    });
   }
-  const json = JSON.stringify(obj, null, 2);
-  fs.writeFile('./data.json', json, 'utf8', (err, data) => {
-    if (err) {
-      res.status(500).json({ error: 'An unexpected error occurred' });
-    }
-  });
 });
 
 app.put('/api/notes/:id', (req, res) => {
   const putId = req.params.id;
   if (putId <= 0) {
-    res.status(400).json({ error: '' });
-  } else if (!req.headers.content) {
+    res.status(400).json({ error: 'id must be a positive integer' });
+  } else if (!req.body.content) {
     res.status(400).json({ error: 'content is a required field' });
   } else if (notesObj[putId] === undefined) {
     res.status(404).json({ error: `cannot find note with id ${putId}` });
-  } else if (req.headers.content && notesObj[putId]) {
-    notesObj[putId].content = req.headers.content;
+  } else if (req.body.content && notesObj[putId]) {
+    notesObj[putId].content = req.body.content;
+    const json = JSON.stringify(obj, null, 2);
+    fs.writeFile('./data.json', json, 'utf8', (err, data) => {
+      if (err) {
+        res.status(500).json({ error: 'An unexpected error occurred' });
+      }
+    });
     res.status(200).json(notesObj[putId]);
   }
-
-  const json = JSON.stringify(obj, null, 2);
-  fs.writeFile('./data.json', json, 'utf8', (err, data) => {
-    if (err) {
-      res.status(500).json({ error: 'An unexpected error occurred' });
-    }
-  });
 });
 
 app.listen(3000, () => {
