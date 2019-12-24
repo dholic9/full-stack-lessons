@@ -35,6 +35,12 @@ app.post('/api/notes', (req, res) => {
   if (!req.body.content) {
     res.status(400).json({ error: 'content is a required field' });
   } else if (req.body.content) {
+    for (const keys in notesObj) {
+      if (notesObj[`${(notesObj[keys].id + 1)}`] === undefined) {
+        obj.nextId = parseInt(keys) + 1;
+        break;
+      }
+    }
     notesObj[obj.nextId] = {
       id: obj.nextId,
       content: req.body.content
