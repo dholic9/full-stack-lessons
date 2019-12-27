@@ -11,7 +11,7 @@ Be sure to check out a new branch (from `master`) for this exercise. Detailed in
 
 1. Read [about JSX and why it is used](https://reactjs.org/docs/introducing-jsx.html) in the official React documentation.
 2. Read the beginning of [JSX in Depth](https://reactjs.org/docs/jsx-in-depth.html) in the official React documentation.
-3. Visit [this preconfigured Babel REPL](https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=usage&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=false&presets=&prettier=true&targets=&version=7.4.4&externalPlugins=%40babel%2Fplugin-transform-react-jsx%407.3.0) and paste the following JSX code in. Notice how Babel uses a **plugin** to transform the JSX into valid JavaScript that a browser can understand.
+3. Visit [this preconfigured Babel REPL](https://babeljs.io/repl#?browsers=&build=&builtIns=usage&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=false&presets=&prettier=true&targets=&version=7.7.7&externalPlugins=%40babel%2Fplugin-transform-react-jsx%407.7.7) and paste the following JSX code in. Notice how Babel uses a **plugin** to transform the JSX into valid JavaScript that a browser can understand.
     ```jsx
     import React from 'react';
     import ReactDOM from 'react-dom';
