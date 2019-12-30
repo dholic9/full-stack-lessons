@@ -35,7 +35,7 @@ Be sure to check out a new branch (from `master`) for this exercise. Detailed in
     };
     ```
 1. Read about [Handling Events](https://reactjs.org/docs/handling-events.html) in the official React documentation.
-- Bookmark React's [lifecycle diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).
+1. Bookmark React's [lifecycle diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).
 1. Read about [State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html) in the official React documentation.
 1. In `src/index.jsx` define a class component named `CustomButton` that renders a `<button>` - mount it to the DOM using `ReactDOM.render`.
 1. Build your code, then test it by opening `dist/index.html` in the browser.
