@@ -27,9 +27,7 @@ class App extends React.Component {
      fetch('/api/todos')
       .then(response => response.json())
       .then(data => {
-        let arr = []
-        data.map((user) => arr.push(user))
-        this.setState({ todos: arr })
+        this.setState({ todos: data })
       })
       .catch(error => {
         console.log(error)
@@ -54,10 +52,9 @@ class App extends React.Component {
       })
     .then(res => res.json())
     .then(data => {
-
-      newTodo.id = (this.state.todos.length+1)
-      let arr = this.state.todos
-      arr.push(newTodo)
+      let createdTodo = data
+      let arr = [...this.state.todos]
+      arr.push(createdTodo)
       this.setState({ todos: arr })
     })
   }
@@ -70,8 +67,16 @@ class App extends React.Component {
      * Be sure to SERIALIZE the updates in the body with JSON.stringify()
      * And specify the "Content-Type" header as "application/json"
      */
-    let targetId = todoId-1
+    let targetId = null
+    let stateTodos = [...this.state.todos]
+    stateTodos.map(todo => {
+      if(todo.id === todoId){
+        todo.isCompleted = (!todo.isCompleted)
+        targetId = todo.id
+      }
+    })
     let newBoolean = (!this.state.todos[targetId]['isCompleted'])
+
     fetch(`/api/todos/${todoId}`, {
       method: 'PATCH',
       headers: {
@@ -81,8 +86,6 @@ class App extends React.Component {
     })
     .then(res => res.json())
     .then(data=>{
-      let stateTodos = this.state.todos
-      stateTodos[targetId]['isCompleted'] = newBoolean
       this.setState({ todos: stateTodos})
     })
     .catch(error => console.log(error))
