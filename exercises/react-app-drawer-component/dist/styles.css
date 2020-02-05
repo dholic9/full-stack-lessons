@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 99%;
+  display: flex;
+  background-color: white;
+  color: black;
+  font-size: 2rem;
+}
+
+.bodyContainer {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  height: 100%;
+  width: 70%;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  top: 0;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  width: 30%;
+  top: 0;
+}
+
+.fas {
+  height: 5%;
+  cursor: pointer;
+  position: relative;
+  left: 12%;
+  top: 10px;
+}
+
+.modal {
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+}
+
+.show {
+  visibility: initial;
+}
+
+h2,
+h3 {
+  cursor: pointer;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.blur {
+  background-color: rgba(0, 0, 0, 0.75);
+}
