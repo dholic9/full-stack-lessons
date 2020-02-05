@@ -1,0 +1,48 @@
+body {
+  box-sizing: border-box;
+  height: 100%;
+  width: 99%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: black;
+  color: white;
+  font-size: 5rem;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.stopWatch {
+  height: 50vh;
+  width: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.play,
+.pause {
+  height: 9vh;
+  width: 9vh;
+  cursor: pointer;
+  color: white;
+}
