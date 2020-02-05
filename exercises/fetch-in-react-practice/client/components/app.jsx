@@ -23,6 +23,15 @@ class App extends React.Component {
      * Then 😉, once the JSON is received and parsed,
      * update state with the received todos.
      */
+
+     fetch('/api/todos')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ todos: data })
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   addTodo(newTodo) {
@@ -33,6 +42,21 @@ class App extends React.Component {
      * Be sure to SERIALIZE the todo in the body with JSON.stringify()
      * And specify the "Content-Type" header as "application/json"
      */
+
+     fetch('/api/todos', {
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json'
+       },
+       body: JSON.stringify(newTodo)
+      })
+    .then(res => res.json())
+    .then(data => {
+      let createdTodo = data
+      let arr = [...this.state.todos]
+      arr.push(createdTodo)
+      this.setState({ todos: arr })
+    })
   }
 
   toggleCompleted(todoId) {
@@ -43,6 +67,28 @@ class App extends React.Component {
      * Be sure to SERIALIZE the updates in the body with JSON.stringify()
      * And specify the "Content-Type" header as "application/json"
      */
+    let targetId = null
+    let stateTodos = [...this.state.todos]
+    stateTodos.map(todo => {
+      if(todo.id === todoId){
+        todo.isCompleted = (!todo.isCompleted)
+        targetId = todo.id
+      }
+    })
+    let newBoolean = (!this.state.todos[targetId]['isCompleted'])
+
+    fetch(`/api/todos/${todoId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({isCompleted: newBoolean})
+    })
+    .then(res => res.json())
+    .then(data=>{
+      this.setState({ todos: stateTodos})
+    })
+    .catch(error => console.log(error))
   }
 
   render() {
