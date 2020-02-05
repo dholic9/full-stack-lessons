@@ -1,0 +1,69 @@
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: black;
+  color: white;
+  font-size: 2rem;
+}
+
+#root {
+  height: 30vh;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: ;
+  align-items: center;
+}
+
+.clicked,
+.notClicked {
+  justify-content: center;
+  align-items: center;
+  display: flexbox;
+  height: 100px;
+  width: 50%;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.clicked {
+  background-color: lightgreen;
+}
+
+.notClicked {
+  background-color: grey;
+}
+
+.toggleLeft,
+.toggleRight {
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid black;
+  width: 37%;
+  height: 98%;
+}
+
+.toggleLeft {
+  position: relative;
+  left: 0%;
+  top: 0;
+  transition: 0.3s;
+}
+
+.toggleRight {
+  position: relative;
+  left: 62%;
+  bottom: 0;
+  transition: 0.3s;
+}
