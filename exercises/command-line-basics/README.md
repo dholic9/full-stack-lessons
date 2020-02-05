@@ -74,8 +74,8 @@ Use the up and down arrows (or PgUp and PgDn) to scroll the page. Press `space` 
     man echo
     ```
 1. Read the `NAME`, `SYNOPSIS`, and `DESCRIPTION` sections. Only read the first bit of the description, it's not useful to read through all of the options right now.
-1. Use the `echo` command to print the string `"Hello, World!"` to the terminal.
-1. Use the `echo` command to write the string `"Hello, World!"` to a new file named `hello.txt` like this:
+1. Use the `echo` command to print the string `'Hello, World!'` to the terminal.
+1. Use the `echo` command to write the string `'Hello, World!'` to a new file named `hello.txt` like this:
     ```bash
     echo 'Hello, World!' > hello.txt
     ```

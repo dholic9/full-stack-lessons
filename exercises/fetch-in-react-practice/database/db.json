@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "todos": [
     {
@@ -17,3 +18,49 @@
     }
   ]
 }
+=======
+{
+  "todos": [
+    {
+      "id": 1,
+      "task": "Learn to code.",
+      "isCompleted": true
+    },
+    {
+      "id": 2,
+      "task": "Build projects.",
+      "isCompleted": true
+    },
+    {
+      "id": 3,
+      "task": "Get a job.",
+      "isCompleted": false
+    },
+    {
+      "task": "why this no work",
+      "isCompleted": true,
+      "id": 4
+    },
+    {
+      "task": "are you sure?",
+      "isCompleted": false,
+      "id": 5
+    },
+    {
+      "task": "sfsf",
+      "isCompleted": false,
+      "id": 6
+    },
+    {
+      "task": "sfsfsfs",
+      "isCompleted": false,
+      "id": 7
+    },
+    {
+      "task": "lets see what happens",
+      "isCompleted": false,
+      "id": 8
+    }
+  ]
+}
+>>>>>>> 0e7d215a0128bab1b9046228c1b1f6dd4acd2fe2
