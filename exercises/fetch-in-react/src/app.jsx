@@ -12,6 +12,19 @@ class App extends React.Component {
 
   componentDidMount() {
     /* your code here */
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((response) => response.json())
+      .then(data => {
+        const arr =[]
+        data.map(user => {
+          arr.push(user)
+        })
+        this.setState({users: arr})
+        this.setState({ isLoading: false })
+      })
+      .catch(error => {
+        console.log('Error: ', error)
+      })
   }
 
   render() {
