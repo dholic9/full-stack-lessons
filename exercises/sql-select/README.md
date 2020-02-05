@@ -115,10 +115,10 @@ select "productId",
 
 The result set would look like this:
 
-| productId | name        | description                | price | category |
-|-----------|-------------|----------------------------|-------|----------|
-| 85        | ShamWow     | Soaks up so much liquid!   | 20    | cleaning |
-| 91        | OxyClean    | A versatile stain remover! | 10    | cleaning |
+| productId | name        | price |
+|-----------|-------------|-------|
+| 85        | ShamWow     | 20    |
+| 91        | OxyClean    | 10    |
 
 Here are a few things to note about the above example. Look back at the example to confirm.
 
@@ -207,7 +207,7 @@ psql -d pagila -f name-of-file.sql
 
 1. `two-kilmers.sql`
 
-    Get the `actorId` and `firstName` of only three actors with the `lastName` of `'Kilmer'`.
+    Get the `actorId` and `firstName` of only two actors with the `lastName` of `'Kilmer'`.
 
 1. `all-categories.sql`
 
