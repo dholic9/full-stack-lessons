@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-{
-  "todos": [
-    {
-      "id": 1,
-      "task": "Learn to code.",
-      "isCompleted": true
-    },
-    {
-      "id": 2,
-      "task": "Build projects.",
-      "isCompleted": true
-    },
-    {
-      "id": 3,
-      "task": "Get a job.",
-      "isCompleted": true
-    }
-  ]
-}
-=======
 {
   "todos": [
     {
@@ -63,4 +42,3 @@
     }
   ]
 }
->>>>>>> 0e7d215a0128bab1b9046228c1b1f6dd4acd2fe2
