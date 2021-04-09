@@ -14,3 +14,5 @@ const names = [
   'Andy',
   'Tim D.'
 ];
+
+const evenNumbers = numbers.filter(number => number % 2 === 0)
