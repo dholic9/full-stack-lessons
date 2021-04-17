@@ -9,3 +9,10 @@ const languages = [
   'PHP Hypertext Preprocessor',
   'Structured Query Language'
 ];
+
+
+const doubled = numbers.map( number => number * 2);
+
+const prices = numbers.map( x => "$" + x.toFixed(2))
+
+const upperCased
